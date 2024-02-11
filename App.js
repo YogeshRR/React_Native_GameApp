@@ -5,8 +5,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
 import StartGameScreen from "./screens/StartGamesScreen";
 import GameScreen from "./screens/GameScreen";
-import Colors from "./components/constants/colors";
-
+import Colors from "./constants/colors";
 export default function App() {
   const [userNumber, setUserNumer] = useState();
   function startGameHandler(pickedNumber) {

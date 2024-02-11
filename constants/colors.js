@@ -4,6 +4,8 @@ const Colors = {
   primary700: "#670436",
   primary800: "#3b0821",
 
+  
+
   accentColor: "#e7e00f",
 };
 

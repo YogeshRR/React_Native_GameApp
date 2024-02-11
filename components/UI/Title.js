@@ -10,10 +10,10 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: "bold",
-    color: "#e9da12",
+    color: "white",
     textAlign: "center",
     borderWidth: 2,
-    borderColor: "#e9da12",
+    borderColor: "white",
     padding: 15,
   },
 });
