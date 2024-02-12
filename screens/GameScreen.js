@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { View, StyleSheet, Text, Alert } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { useFonts } from "expo-font";
 
 import Title from "../components/UI/Title";
 import NumberContainer from "../components/game/NumbersContainer";
