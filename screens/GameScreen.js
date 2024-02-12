@@ -57,14 +57,20 @@ function GameScreen({ userNumber, onGameOvered }) {
       <Title>Opponent's Guess</Title>
       <NumberContainer>{currentGuess} </NumberContainer>
       <Card>
-        <InstructionText>Higher or Lower</InstructionText>
-        <View>
-          <PrimaryButton onPress={guessNumber.bind(this, "greater")}>
-            +
-          </PrimaryButton>
-          <PrimaryButton onPress={guessNumber.bind(this, "lower")}>
-            -
-          </PrimaryButton>
+        <InstructionText style={styles.instrunctionText}>
+          Higher or Lower
+        </InstructionText>
+        <View style={styles.buttonsContainer}>
+          <View style={styles.buttonContainer}>
+            <PrimaryButton onPress={guessNumber.bind(this, "greater")}>
+              +
+            </PrimaryButton>
+          </View>
+          <View style={styles.buttonContainer}>
+            <PrimaryButton onPress={guessNumber.bind(this, "lower")}>
+              -
+            </PrimaryButton>
+          </View>
         </View>
       </Card>
       <View></View>
@@ -78,5 +84,14 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     padding: 24,
+  },
+  buttonsContainer: {
+    flexDirection: "row",
+  },
+  buttonContainer: {
+    flex: 1,
+  },
+  instrunctionText: {
+    marginBottom: 12,
   },
 });
