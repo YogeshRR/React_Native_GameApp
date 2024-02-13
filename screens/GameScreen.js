@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { View, StyleSheet, Text, Alert } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { useFonts } from "expo-font";
 
 import Title from "../components/UI/Title";
 import NumberContainer from "../components/game/NumbersContainer";
@@ -32,6 +31,11 @@ function GameScreen({ userNumber, onGameOvered }) {
       onGameOvered();
     }
   }, [currentGuess, userNumber, onGameOvered]);
+
+  useEffect(() => {
+    minBoundry = 1;
+    maxBoundry = 100;
+  }, []);
 
   function guessNumber(direction) {
     if (

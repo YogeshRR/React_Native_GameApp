@@ -12,6 +12,7 @@ import GameOver from "./screens/GameOver";
 export default function App() {
   const [userNumber, setUserNumer] = useState();
   const [gameIsOver, setGameIsOvered] = useState(true);
+  const [gameRounds, setGameRounds] = useState();
 
   const [fontLoaded] = useFonts({
     "open-sans-regular": require("./assets/fonts/OpenSans-Regular.ttf"),
@@ -33,12 +34,23 @@ export default function App() {
     setGameIsOvered(true);
   }
 
+  function restartNewGame() {
+    setUserNumer(null);
+    setGameRounds(0);
+  }
+
   if (userNumber) {
     screen = <GameScreen userNumber={userNumber} onGameOvered={gameIsOvered} />;
   }
 
   if (gameIsOver && userNumber) {
-    screen = <GameOver />;
+    screen = (
+      <GameOver
+        userNumber={userNumber}
+        userRound={gameRounds}
+        onStrtNewGame={restartNewGame}
+      />
+    );
   }
 
   return (
