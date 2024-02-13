@@ -14,9 +14,9 @@ function GameOver({ userNumber, userRound, onStrtNewGame }) {
       </View>
       <View>
         <Text style={styles.summaryText}>
-          Your Phone need <Text style={styles.highlightText}>{userNumber}</Text>{" "}
-          rounds to guess the number{" "}
-          <Text style={styles.highlightText}>{userRound}.</Text>
+          Your Phone need <Text style={styles.highlightText}>{userRound}</Text>{" "}
+          rounds to guess the number
+          <Text style={styles.highlightText}>{userNumber}.</Text>
         </Text>
       </View>
       <PrimaryButton onPress={onStrtNewGame}>Restart</PrimaryButton>
