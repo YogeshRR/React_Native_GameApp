@@ -12,7 +12,11 @@ function GameOver() {
         ></Image>
       </View>
       <View>
-        <Text> Your Phone need X rounds to guess the number Y.</Text>
+        <Text>
+          {" "}
+          Your Phone need <Text>X</Text> rounds to guess the number{" "}
+          <Text>Y.</Text>
+        </Text>
       </View>
     </View>
   );
