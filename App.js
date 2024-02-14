@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { StyleSheet, ImageBackground } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
@@ -30,8 +30,9 @@ export default function App() {
 
   let screen = <StartGameScreen onConfirmNumber={startGameHandler} />;
 
-  function gameIsOvered() {
+  function gameIsOvered(guessRound) {
     setGameIsOvered(true);
+    setGameRounds(guessRound);
   }
 
   function restartNewGame() {
