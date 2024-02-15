@@ -1,26 +1,53 @@
-import { View, Image, StyleSheet, Text, Dimensions } from "react-native";
+import {
+  View,
+  Image,
+  StyleSheet,
+  Text,
+  Dimensions,
+  useWindowDimensions,
+  ScrollView,
+} from "react-native";
 import Title from "../components/UI/Title";
 import Colors from "../constants/colors";
 import PrimaryButton from "../components/UI/PrimaryButton";
 function GameOver({ userNumber, userRound, onStrtNewGame }) {
+  const { width, height } = useWindowDimensions();
+  let imageSize = 300;
+  if (width < 380) {
+    imageSize = 150;
+  }
+
+  if (height < 380) {
+    imageSize = 150;
+  }
+
+  let landScapeView = {
+    height: imageSize,
+    width: imageSize,
+    borderRadius: imageSize / 2,
+  };
+
   return (
-    <View style={styles.rootContainer}>
-      <Title>Game Over</Title>
-      <View style={styles.imageContainer}>
-        <Image
-          style={styles.image}
-          source={require("../assets/images/success.png")}
-        ></Image>
+    <ScrollView style={styles.landScapeView}>
+      <View style={styles.rootContainer}>
+        <Title>Game Over</Title>
+        <View style={[styles.imageContainer, landScapeView]}>
+          <Image
+            style={styles.image}
+            source={require("../assets/images/success.png")}
+          ></Image>
+        </View>
+        <View>
+          <Text style={styles.summaryText}>
+            Your Phone need{" "}
+            <Text style={styles.highlightText}>{userRound}</Text> rounds to
+            guess the number
+            <Text style={styles.highlightText}>{userNumber}.</Text>
+          </Text>
+        </View>
+        <PrimaryButton onPress={onStrtNewGame}>Restart</PrimaryButton>
       </View>
-      <View>
-        <Text style={styles.summaryText}>
-          Your Phone need <Text style={styles.highlightText}>{userRound}</Text>{" "}
-          rounds to guess the number
-          <Text style={styles.highlightText}>{userNumber}.</Text>
-        </Text>
-      </View>
-      <PrimaryButton onPress={onStrtNewGame}>Restart</PrimaryButton>
-    </View>
+    </ScrollView>
   );
 }
 export default GameOver;
@@ -56,5 +83,8 @@ const styles = StyleSheet.create({
   highlightText: {
     fontFamily: "open-sans-bold",
     fontSize: 30,
+  },
+  scrollView: {
+    flex: 1,
   },
 });
